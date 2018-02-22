@@ -9,7 +9,7 @@ class UserCreationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('name',)
+        fields = ('email','name',)
 
     def clean_password2(self):
         pass1 = self.cleaned_data.get("pass1")
@@ -19,7 +19,7 @@ class UserCreationForm(forms.ModelForm):
         return pass2
 
     def save(self, commit=True):
-        user = super.save(commit=False)
+        user = super().save(commit=False)
         user.set_password(self.cleaned_data["pass1"])
         if commit:
             user.save()
