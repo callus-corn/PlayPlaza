@@ -20,5 +20,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^upload/', include('upload.urls')),
     url(r'^account/', include('account.urls')),
+    url(r'^register/', include('register.urls')),
     url(r'^', include('top.urls')),
 ]
