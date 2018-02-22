@@ -1,6 +1,6 @@
 from django.db import models
 
-from account.model import User
+from account.models import User
 
 
 class Content(models.Model):
