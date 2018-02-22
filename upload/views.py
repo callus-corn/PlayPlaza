@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 import os
 
-from api.models import Content, User
+from contents.models import Content
+from account.model import User
 UPLOAD_DIR = '/home/vagrant/contents'
 TEMPLATE_DIR = 'TemplateData'
 BUILD_DIR = 'Build'

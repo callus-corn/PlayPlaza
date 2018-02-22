@@ -16,12 +16,9 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from api.urls import router as api_router
-
 urlpatterns = [
     url(r'^$', include('top.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include(api_router.urls)),
     url(r'^upload/', include('upload.urls')),
     url(r'^account/', include('account.urls')),
 ]
