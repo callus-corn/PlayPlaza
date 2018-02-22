@@ -1,0 +1,14 @@
+{% extends "upload/base.html" %}
+
+{% block title %}sample{% endblock title%}
+{% block content %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="title">
+        <input type="file" name="index">
+        <input type="file" name="Template[]" multiple>
+        <input type="file" name="Build[]" multiple>
+        <input type="hidden" value="5" name="user">
+        <input type="submit" value="upload">
+    </form>
+{% endblock content %}
