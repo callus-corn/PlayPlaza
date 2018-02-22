@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+from account.model import User
+
+
+class Content(models.Model):
+    title = models.TextField()
+    author = models.ForeignKey(User, related_name='content')
