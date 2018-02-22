@@ -5,7 +5,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 from .models import User
-from register.forms import UserCreationForms
+from register.forms import UserCreationForm
 
 
 class UserChangeForm(forms.ModelForm):
@@ -36,7 +36,7 @@ class UserAdmin(UA):
         ),
     )
     search_fields = ('email',)
-    ordering('email',)
+    ordering = ('email',)
     filter_horizontal = ()
 
 

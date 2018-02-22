@@ -39,6 +39,9 @@ class User(AbstractBaseUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
 
+    def get_short_name():
+        return name
+
     def __str__(self):
         return self.email
 
