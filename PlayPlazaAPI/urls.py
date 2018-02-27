@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^upload/', include('upload.urls')),
     url(r'^account/', include('account.urls')),
     url(r'^register/', include('register.urls')),
+    url(r'^delete/', include('delete.urls')),
     url(r'^', include('top.urls')),
 ]
