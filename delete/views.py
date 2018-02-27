@@ -1,12 +1,14 @@
-from django.views.generic import DeleteView
-from django.shortcuts import get_object_or_404
+from django.views.generic import ListView, DeleteView
 
-from account.models import User
+from contents.models import Content
 
 
-class DeleteAccountView(DeleteView):
-    model = User
+class ContentListView(ListView):
+    model = Content
+
+    def get_queryset(self):
+        return Content.objects.filter(author=self.request.user.id)
+
+class DeleteContentView(DeleteView):
+    model = Content
     success_url = '/'
-
-    def get_object(self):
-        return get_object_or_404(User, id=self.request.user.id)
