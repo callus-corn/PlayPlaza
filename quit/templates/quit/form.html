@@ -1,0 +1,11 @@
+{% extends 'quit/base.html' %}
+
+{% block content %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" name="action" value="quit">quit</button>
+    </form>
+
+{% endblock %}

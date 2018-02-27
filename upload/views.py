@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 import os
 
-from api.models import Content, User
+from contents.models import Content
+from account.models import User
 UPLOAD_DIR = '/home/vagrant/contents'
 TEMPLATE_DIR = 'TemplateData'
 BUILD_DIR = 'Build'
@@ -12,14 +13,14 @@ def form(request):
     if request.method != 'POST':
         return render(request, 'upload/upload.html')
 
-    title = request.POST['title']
+    content_title = request.POST['title']
     index_file = request.FILES['index']
     template_files = request.FILES.getlist("Template[]")
     build_files = request.FILES.getlist("Build[]")
-    user_id = request.POST['user']
+    user_id = request.user.id
 
-    user = User(id = user_id)
-    data = Content(name = title, author = user)
+    user = User(id=user_id)
+    data = Content(title=content_title, author=user)
     data.save()
 
     dir_path = os.path.join(UPLOAD_DIR, str(data.id))
@@ -54,7 +55,4 @@ def form(request):
             for chunk in build_files[i]:
                 data.write(chunk)
 
-    return redirect('upload:complete')
-
-def complete(request):
-    return render(request, 'upload/complete.html')
+    return redirect('top:index')
