@@ -58,4 +58,4 @@ def form(request):
     return redirect('upload:complete')
 
 def complete(request):
-    return render(request, 'upload/complete.html')
+    return render(request, 'top/index.html')
