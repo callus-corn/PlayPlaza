@@ -55,7 +55,4 @@ def form(request):
             for chunk in build_files[i]:
                 data.write(chunk)
 
-    return redirect('upload:complete')
-
-def complete(request):
-    return render(request, 'top/index.html')
+    return redirect('top:index')
