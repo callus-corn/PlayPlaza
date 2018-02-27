@@ -13,14 +13,14 @@ def form(request):
     if request.method != 'POST':
         return render(request, 'upload/upload.html')
 
-    title = request.POST['title']
+    content_title = request.POST['title']
     index_file = request.FILES['index']
     template_files = request.FILES.getlist("Template[]")
     build_files = request.FILES.getlist("Build[]")
-    user_id = request.POST['user']
+    user_id = request.user.id
 
-    user = User(id = user_id)
-    data = Content(name = title, author = user)
+    user = User(id=user_id)
+    data = Content(title=content_title, author=user)
     data.save()
 
     dir_path = os.path.join(UPLOAD_DIR, str(data.id))
