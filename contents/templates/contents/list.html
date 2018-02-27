@@ -1,0 +1,11 @@
+{% extends 'contents/base.html' %}
+
+{% block content %}
+
+    <ul>
+        {% for item in object_list %}
+        <li><a href="http://192.168.33.10/contents/{{ item.id }}/index.html">{{ item.title }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

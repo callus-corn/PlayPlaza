@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^register/', include('register.urls')),
     url(r'^quit/', include('quit.urls')),
     url(r'^', include('top.urls')),
+    url(r'^contentsList', include('contents.urls')),
 ]
