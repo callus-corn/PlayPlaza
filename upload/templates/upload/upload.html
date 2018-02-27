@@ -4,11 +4,10 @@
 {% block content %}
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="text" name="title">
-        <input type="file" name="index">
-        <input type="file" name="Template[]" multiple>
-        <input type="file" name="Build[]" multiple>
-        <input type="text" name="user">
+        title:<input type="text" name="title">
+        index.html:<input type="file" name="index">
+        Template:<input type="file" name="Template[]" multiple>
+        Build:<input type="file" name="Build[]" multiple>
         <input type="submit" value="upload">
     </form>
 {% endblock content %}
